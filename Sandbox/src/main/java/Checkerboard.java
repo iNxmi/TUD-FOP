@@ -6,7 +6,7 @@ import fopbot.World;
 public class Checkerboard {
 
     public Checkerboard() {
-        World.setSize(20, 20);
+        World.setSize(10, 10);
         World.setDelay(1);
         World.setVisible(true);
 
@@ -27,16 +27,16 @@ public class Checkerboard {
                     robot.move();
                 } else {
                     switch (robot.getDirection()) {
-                        case RIGHT:
+                        case RIGHT -> {
                             robot.turnLeft();
                             robot.move();
                             robot.turnLeft();
-                            break;
-                        case LEFT:
+                        }
+                        case LEFT -> {
                             RobotUtils.turnRight(robot);
                             robot.move();
                             RobotUtils.turnRight(robot);
-                            break;
+                        }
                     }
                 }
 

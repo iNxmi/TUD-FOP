@@ -7,12 +7,6 @@ import fopbot.RobotFamily;
 import h01.template.Contaminant;
 import h01.template.TickBased;
 import h01.template.Utils;
-import org.tudalgo.algoutils.student.Student;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
 
 /**
  * A {@link Contaminant}-{@link Robot} that moves in a predefined way and contaminates the floor.
