@@ -9,6 +9,7 @@
         <module name="H01" />
         <module name="FOPBOT" />
         <module name="AlgoUtils" />
+        <module name="H02" />
         <module name="Base" />
         <module name="Sandbox" />
       </profile>
