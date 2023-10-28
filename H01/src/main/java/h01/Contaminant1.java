@@ -46,7 +46,7 @@ public class Contaminant1 extends Robot implements Contaminant, TickBased {
             if (hasAnyCoins() && Utils.getCoinAmount(getX(), getY()) < 20)
                 putCoin();
 
-        List<Direction> possibleDirections = RobotUtils.getPossibleDirections(this);
+        List<Direction> possibleDirections = RobotUtils.getPossibleDirectionsList(this);
         int randDirIndex = Utils.getRandomInteger(0, possibleDirections.size() - 1);
         Direction dir = possibleDirections.get(randDirIndex);
 

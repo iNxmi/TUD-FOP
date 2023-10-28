@@ -23,7 +23,7 @@ public class GameController extends GameControllerBase {
         Robot con1 = getContaminant1();
         Robot con2 = getContaminant2();
 
-        boolean has200Coins = Utils.getCoinAmount(0, World.getHeight() - 1) >= 2;
+        boolean has200Coins = Utils.getCoinAmount(0, World.getHeight() - 1) >= 200;
         boolean robotsAreOff = con1.isTurnedOff() && con2.isTurnedOff();
         if (has200Coins || robotsAreOff) {
             if (!con1.isTurnedOff())

@@ -13,14 +13,12 @@ public class RobotUtils {
             robot.turnLeft();
     }
 
-    public static LinkedList<Direction> getPossibleDirections(Robot robot) {
+    public static LinkedList<Direction> getPossibleDirectionsList(Robot robot) {
         LinkedList<Direction> list = new LinkedList<>();
-        for (int i = 0; i < 4; i++) {
-            if (robot.isFrontClear())
-                list.add(robot.getDirection());
-
-            robot.turnLeft();
-        }
+        getPossibleDirectionsMap(robot).forEach((k, v) -> {
+            if (v)
+                list.add(k);
+        });
 
         return list;
     }
