@@ -5,14 +5,14 @@ import fopbot.World;
 public class Main {
 
     public Main() {
-        World.setSize(10, 10);
-        World.setDelay(30);
+        World.setSize(5, 5);
+        World.setDelay(10);
         World.placeBlock(0, 0);
         World.placeHorizontalWall(0, 0);
         World.placeVerticalWall(0, 0);
         World.getGlobalWorld().setDrawTurnedOffRobots(false);
 
-        int[][] coins = getRandomCoins();
+        int[][] coins = getRandomCoins(2);
         placeCoinsInWorld(coins);
 
         World.setVisible(true);
@@ -21,12 +21,12 @@ public class Main {
         controlCenter.cleanWorld();
     }
 
-    public int[][] getRandomCoins() {
+    public int[][] getRandomCoins(int max) {
         int[][] coins = new int[World.getWidth()][World.getHeight()];
 
         for (int y = 1; y < World.getHeight(); y++)
             for (int x = 1; x < World.getWidth(); x++)
-                coins[x][y] = (int) Math.round((Math.random() * 5.0d));
+                coins[x][y] = (int) Math.round((Math.random() * max));
 
         return coins;
     }

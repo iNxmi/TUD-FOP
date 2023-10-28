@@ -44,10 +44,10 @@ public class ControlCenter {
      */
     public void reverseRobots(Robot[] robots) {
         int length = robots.length;
-        for (int i = 0; i < length / 2; i++) {
+        for (int i = 0; i < length; i++) {
             Robot r = robots[i];
-            robots[i] = robots[length - 1];
-            robots[length - 1] = r;
+            robots[i] = robots[length - (i+1)];
+            robots[length - (i+1)] = r;
         }
     }
 
@@ -57,7 +57,9 @@ public class ControlCenter {
      * @param robots The array of {@linkplain Robot robots} to rotate
      */
     public void rotateRobots(Robot[] robots) {
-        for (Robot r : robots) {
+        for (int i = 0; i < robots.length; i++) {
+            Robot r = robots[i];
+
             r.turnLeft();
             r.turnLeft();
 
@@ -122,9 +124,11 @@ public class ControlCenter {
      * @param robots The robots to move
      */
     public void returnRobots(Robot[] robots) {
-        for (Robot r : robots)
+        for (int i = 0; i < robots.length; i++) {
+            Robot r = robots[i];
             while (r.isFrontClear())
                 r.move();
+        }
     }
 
     /**
@@ -134,15 +138,13 @@ public class ControlCenter {
      * @return An array detailing which world fields contain at least one coin
      */
     public boolean[][] scanWorld(ScanRobot[] scanRobots) {
-        boolean[][] coinPositions = new boolean[World.getWidth()][World.getHeight()];
+        boolean[][] coinPositions = new boolean[World.getWidth() - 1][World.getHeight() - 1];
 
         for (int y = 0; y < World.getHeight() - 1; y++)
             for (int x = 0; x < World.getWidth() - 1; x++) {
                 ScanRobot r = scanRobots[x];
-
-                coinPositions[x][y] = r.isOnACoin();
-
                 r.move();
+                coinPositions[x][y] = r.isOnACoin();
             }
 
         spinRobots(scanRobots);
@@ -159,14 +161,15 @@ public class ControlCenter {
      * @param cleanRobots      An array containing the {@linkplain CleanRobot CleanRobots} to collect the coins with.
      */
     public void moveCleanRobots(CleanRobot[] cleanRobots, boolean[][] positionsOfCoins) {
-        for (int y = 0; y < World.getHeight() - 1; y++)
-            for (int x = 0; x < World.getWidth() - 1; x++) {
-                CleanRobot r = cleanRobots[x];
-
-                if(positionsOfCoins[x][y])
-                    r.pickCoin();
-
+        for (int x = 0; x < World.getWidth() - 1; x++)
+            for (int y = 0; y < World.getHeight() - 1; y++) {
+                CleanRobot r = cleanRobots[y];
                 r.move();
+
+                System.out.println(positionsOfCoins[x][y]);
+
+                if (positionsOfCoins[x][y])
+                    r.pickCoin();
             }
 
         spinRobots(cleanRobots);

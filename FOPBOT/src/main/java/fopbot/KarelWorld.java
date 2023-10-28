@@ -189,9 +189,9 @@ public class KarelWorld {
      */
     public List<FieldEntity> getAllFieldEntities() {
         return Stream.of(fields).flatMap(Stream::of)
-            .map(Field::getEntities)
-            .flatMap(Collection::stream)
-            .toList();
+                .map(Field::getEntities)
+                .flatMap(Collection::stream)
+                .toList();
     }
 
     /**
@@ -304,9 +304,9 @@ public class KarelWorld {
     public List<RobotTrace> getTraces() {
         final var traces = new ArrayList<RobotTrace>();
         final var entities = getAllFieldEntities().stream()
-            .filter(Robot.class::isInstance)
-            .map(Robot.class::cast)
-            .toList();
+                .filter(Robot.class::isInstance)
+                .map(Robot.class::cast)
+                .toList();
         for (final var id : this.traces.keySet()) {
             final Robot lastState = entities.stream().filter(en -> en.getId().equals(id)).findAny().orElse(null);
             traces.add(getTrace(lastState));
@@ -333,7 +333,7 @@ public class KarelWorld {
      */
     protected boolean isAnotherRobotInField(final int x, final int y, final Robot robot) {
         return fields[y][x].getEntities().stream()
-            .anyMatch(e -> e instanceof Robot && e != robot);
+                .anyMatch(e -> e instanceof Robot && e != robot);
     }
 
     /**
@@ -345,7 +345,7 @@ public class KarelWorld {
      */
     protected boolean isBlockInField(final int x, final int y) {
         return fields[y][x].getEntities().stream()
-            .anyMatch(Block.class::isInstance);
+                .anyMatch(Block.class::isInstance);
     }
 
     /**
@@ -357,7 +357,7 @@ public class KarelWorld {
      */
     protected boolean isCoinInField(final int x, final int y) {
         return fields[y][x].getEntities().stream()
-            .anyMatch(Coin.class::isInstance);
+                .anyMatch(Coin.class::isInstance);
     }
 
     /**
@@ -365,7 +365,7 @@ public class KarelWorld {
      * {@code false} if this world is running in headless mode.
      *
      * @return {@code true} if this world is visible on the graphical user interface.
-     *     Returns {@code false} if this world is running in headless mode
+     * Returns {@code false} if this world is running in headless mode
      */
     public boolean isVisible() {
         return !GraphicsEnvironment.isHeadless() && guiFrame != null && guiFrame.isVisible();
@@ -414,7 +414,7 @@ public class KarelWorld {
      */
     protected boolean isWallInField(final int x, final int y, final boolean horizontal) {
         return fields[y][x].getEntities().stream()
-            .anyMatch(e -> e instanceof Wall && ((Wall) e).isHorizontal() == horizontal);
+                .anyMatch(e -> e instanceof Wall && ((Wall) e).isHorizontal() == horizontal);
     }
 
     /**
@@ -531,8 +531,8 @@ public class KarelWorld {
      */
     public void reset() {
         Stream.of(fields).flatMap(Stream::of)
-            .map(Field::getEntities)
-            .forEach(Collection::clear);
+                .map(Field::getEntities)
+                .forEach(Collection::clear);
         triggerUpdate();
     }
 
@@ -584,14 +584,14 @@ public class KarelWorld {
      * @return the loaded robot images
      */
     private Map<String, Image[]> setAndLoadRobotImages(
-        final InputStream turnedOn,
-        final InputStream turnedOff,
-        final int rotationOffsetOn,
-        final int rotationOffsetOff
+            final InputStream turnedOn,
+            final InputStream turnedOff,
+            final int rotationOffsetOn,
+            final int rotationOffsetOff
     ) {
         return Map.ofEntries(
-            Map.entry("on", PaintUtils.loadScaleRotateFieldImage(turnedOn, rotationOffsetOn, robotImageSize)),
-            Map.entry("off", PaintUtils.loadScaleRotateFieldImage(turnedOff, rotationOffsetOff, robotImageSize))
+                Map.entry("on", PaintUtils.loadScaleRotateFieldImage(turnedOn, rotationOffsetOn, robotImageSize)),
+                Map.entry("off", PaintUtils.loadScaleRotateFieldImage(turnedOff, rotationOffsetOff, robotImageSize))
         );
     }
 
@@ -605,17 +605,17 @@ public class KarelWorld {
      * @param rotationOffsetOff the rotation offset of the turned off robot in degree
      */
     public void setAndLoadRobotImages(
-        final Class<? extends Robot> robotClass,
-        final InputStream turnedOn,
-        final InputStream turnedOff,
-        final int rotationOffsetOn,
-        final int rotationOffsetOff
+            final Class<? extends Robot> robotClass,
+            final InputStream turnedOn,
+            final InputStream turnedOff,
+            final int rotationOffsetOn,
+            final int rotationOffsetOff
     ) {
         robotImages.put(robotClass, setAndLoadRobotImages(
-            turnedOn,
-            turnedOff,
-            rotationOffsetOn,
-            rotationOffsetOff
+                turnedOn,
+                turnedOff,
+                rotationOffsetOn,
+                rotationOffsetOff
         ));
     }
 
@@ -629,17 +629,17 @@ public class KarelWorld {
      * @param rotationOffsetOff the rotation offset of the turned off robot in degree
      */
     public void setAndLoadRobotImagesById(
-        final String imageId,
-        final InputStream turnedOn,
-        final InputStream turnedOff,
-        final int rotationOffsetOn,
-        final int rotationOffsetOff
+            final String imageId,
+            final InputStream turnedOn,
+            final InputStream turnedOff,
+            final int rotationOffsetOn,
+            final int rotationOffsetOff
     ) {
         robotImagesById.put(imageId, setAndLoadRobotImages(
-            turnedOn,
-            turnedOff,
-            rotationOffsetOn,
-            rotationOffsetOff
+                turnedOn,
+                turnedOff,
+                rotationOffsetOn,
+                rotationOffsetOff
         ));
     }
 
@@ -653,11 +653,12 @@ public class KarelWorld {
         if (GraphicsEnvironment.isHeadless()) {
             return;
         }
-        try {
-            Thread.sleep(delay);
-        } catch (final InterruptedException e) {
-            e.printStackTrace();
-        }
+        if (delay > 0)
+            try {
+                Thread.sleep(delay);
+            } catch (final InterruptedException e) {
+                e.printStackTrace();
+            }
     }
 
     /**
