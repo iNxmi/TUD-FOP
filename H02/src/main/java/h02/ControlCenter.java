@@ -46,8 +46,8 @@ public class ControlCenter {
         int length = robots.length;
         for (int i = 0; i < length; i++) {
             Robot r = robots[i];
-            robots[i] = robots[length - (i+1)];
-            robots[length - (i+1)] = r;
+            robots[i] = robots[length - (i + 1)];
+            robots[length - (i + 1)] = r;
         }
     }
 
@@ -165,8 +165,6 @@ public class ControlCenter {
             for (int y = 0; y < World.getHeight() - 1; y++) {
                 CleanRobot r = cleanRobots[y];
                 r.move();
-
-                System.out.println(positionsOfCoins[x][y]);
 
                 if (positionsOfCoins[x][y])
                     r.pickCoin();
