@@ -10,7 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.nami.fop.fopbot</groupId>
-    <artifactId>FOPBOT</artifactId>
+    <artifactId>FoPBOT</artifactId>
 
     <properties>
         <maven.compiler.source>19</maven.compiler.source>

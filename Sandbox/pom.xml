@@ -11,7 +11,14 @@
 
     <groupId>com.nami.fop.sandbox</groupId>
     <artifactId>Sandbox</artifactId>
+
     <dependencies>
+        <dependency>
+            <groupId>com.nami.fop.fopbot</groupId>
+            <artifactId>FoPBOT</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
         <dependency>
             <groupId>com.nami.fop.base</groupId>
             <artifactId>Base</artifactId>
