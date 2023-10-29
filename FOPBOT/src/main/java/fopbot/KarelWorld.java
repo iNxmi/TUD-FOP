@@ -113,11 +113,11 @@ public class KarelWorld {
      * @throws RuntimeException if the world size is smaller than one
      */
     public KarelWorld(final int width, final int height) {
+        if (width <= 0 || height <= 0)
+            throw new RuntimeException(String.format("Invalid world size: x = %s; y = %s", width, height));
+
         System.setProperty("sun.java2d.dpiaware", "false");
         System.setProperty("sun.java2d.uiScale", "1.0");
-        if (width < 1 || height < 1) {
-            throw new RuntimeException("Invalid world size: " + width + "x" + height);
-        }
 
         this.height = height;
         this.width = width;
@@ -125,11 +125,9 @@ public class KarelWorld {
         robotImagesById = new HashMap<>();
 
         fields = new Field[height][width];
-        for (int y = 0; y < height; y++) {
-            for (int x = 0; x < width; x++) {
+        for (int y = 0; y < height; y++)
+            for (int x = 0; x < width; x++)
                 fields[y][x] = new Field(this, x, y);
-            }
-        }
     }
 
     /**
