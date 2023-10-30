@@ -2,25 +2,23 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>TUD-FOP</artifactId>
+        <groupId>com.nami.fop</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.nami.fop</groupId>
-    <artifactId>TUD-FOP</artifactId>
-    <packaging>pom</packaging>
-    <version>1.0-SNAPSHOT</version>
-
-    <modules>
-        <module>AlgoUtils</module>
-        <module>FoPBOT</module>
-
-        <module>Base</module>
-
-        <module>H01</module>
-        <module>H02</module>
-
-        <module>Sandbox</module>
-        <module>H00</module>
-    </modules>
+    <groupId>com.nami.fop.h00</groupId>
+    <artifactId>H00</artifactId>
+    <dependencies>
+        <dependency>
+            <groupId>com.nami.fop.fopbot</groupId>
+            <artifactId>FoPBOT</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
 
     <properties>
         <maven.compiler.source>19</maven.compiler.source>
