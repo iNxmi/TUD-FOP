@@ -10,6 +10,7 @@
         <module name="FoPBOT" />
         <module name="H01" />
         <module name="H00" />
+        <module name="H03" />
         <module name="H02" />
         <module name="Base" />
         <module name="Sandbox" />

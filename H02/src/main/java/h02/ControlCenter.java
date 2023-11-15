@@ -18,7 +18,7 @@ public class ControlCenter {
      */
     public ScanRobot[] initScanRobots() {
         ScanRobot[] arr = new ScanRobot[World.getWidth() - 1];
-        for (int i = 0; i < World.getWidth() - 1; i++)
+        for (int i = 0; i < arr.length; i++)
             arr[i] = new ScanRobot(1 + i, 0, Direction.UP, 0);
 
         return arr;
@@ -31,7 +31,7 @@ public class ControlCenter {
      */
     public CleanRobot[] initCleaningRobots() {
         CleanRobot[] arr = new CleanRobot[World.getHeight() - 1];
-        for (int i = 0; i < World.getHeight() - 1; i++)
+        for (int i = 0; i < arr.length; i++)
             arr[i] = new CleanRobot(0, 1 + i, Direction.RIGHT, 0);
 
         return arr;
