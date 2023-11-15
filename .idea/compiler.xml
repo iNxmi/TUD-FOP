@@ -6,9 +6,10 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="H01" />
-        <module name="FOPBOT" />
         <module name="AlgoUtils" />
+        <module name="FoPBOT" />
+        <module name="H01" />
+        <module name="H00" />
         <module name="H02" />
         <module name="Base" />
         <module name="Sandbox" />

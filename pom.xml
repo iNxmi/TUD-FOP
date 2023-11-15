@@ -8,13 +8,18 @@
     <artifactId>TUD-FOP</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+
     <modules>
-        <module>Base</module>
-        <module>H01</module>
-        <module>FOPBOT</module>
         <module>AlgoUtils</module>
-        <module>Sandbox</module>
+        <module>FoPBOT</module>
+
+        <module>Base</module>
+
+        <module>H01</module>
         <module>H02</module>
+
+        <module>Sandbox</module>
+        <module>H00</module>
     </modules>
 
     <properties>

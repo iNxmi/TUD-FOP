@@ -9,19 +9,12 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.nami.fop.sandbox</groupId>
-    <artifactId>Sandbox</artifactId>
-
+    <groupId>com.nami.fop.h00</groupId>
+    <artifactId>H00</artifactId>
     <dependencies>
         <dependency>
             <groupId>com.nami.fop.fopbot</groupId>
             <artifactId>FoPBOT</artifactId>
-            <version>1.0-SNAPSHOT</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.nami.fop.base</groupId>
-            <artifactId>Base</artifactId>
             <version>1.0-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>
