@@ -5,7 +5,7 @@ import fopbot.World;
 public class Main {
 
     public Main() {
-        World.setSize(5, 5);
+        World.setSize(10, 10);
         World.setDelay(10);
         World.placeBlock(0, 0);
         World.placeHorizontalWall(0, 0);

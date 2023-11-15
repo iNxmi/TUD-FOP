@@ -7,7 +7,7 @@ public class Checkerboard {
 
     public Checkerboard() {
         World.setSize(10, 10);
-        World.setDelay(1);
+        World.setDelay(10);
         World.setVisible(true);
 
         int coins = (int) Math.ceil((World.getWidth() * World.getHeight() / 2f));
