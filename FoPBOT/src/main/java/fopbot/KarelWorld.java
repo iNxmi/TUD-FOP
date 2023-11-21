@@ -393,6 +393,7 @@ public class KarelWorld {
             guiFrame.setLayout(new BorderLayout());
             guiFrame.add(guiGp, BorderLayout.CENTER);
             guiFrame.pack();
+            guiFrame.setLocationRelativeTo(null);
             guiFrame.setVisible(true);
             triggerUpdate();
         } else if (!visible && guiFrame != null && guiFrame.isVisible()) {
