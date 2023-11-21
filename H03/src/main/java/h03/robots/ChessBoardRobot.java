@@ -30,4 +30,5 @@ public class ChessBoardRobot extends MultiFamilyRobot {
     public ChessBoardRobot(int x, int y) {
         super(x, y, new RobotFamily[]{RobotFamily.SQUARE_BLACK, RobotFamily.SQUARE_WHITE});
     }
+
 }

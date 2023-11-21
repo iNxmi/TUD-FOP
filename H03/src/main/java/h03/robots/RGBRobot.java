@@ -14,12 +14,12 @@ public class RGBRobot extends MultiFamilyRobot {
     /**
      * Array of RobotFamily objects representing the normal color sequence (SQUARE_RED, SQUARE_GREEN, SQUARE_BLUE).
      */
-    private static final RobotFamily[] NORMAL = new RobotFamily[]{RobotFamily.SQUARE_RED, RobotFamily.SQUARE_GREEN, RobotFamily.SQUARE_BLUE};
+    private static final RobotFamily[] NORMAL = {RobotFamily.SQUARE_RED, RobotFamily.SQUARE_GREEN, RobotFamily.SQUARE_BLUE};
 
     /**
      * Array of RobotFamily objects representing the inverted color sequence (SQUARE_BLUE, SQUARE_GREEN, SQUARE_RED).
      */
-    private static final RobotFamily[] INVERTED = new RobotFamily[]{RobotFamily.SQUARE_BLUE, RobotFamily.SQUARE_GREEN, RobotFamily.SQUARE_RED};
+    private static final RobotFamily[] INVERTED = {RobotFamily.SQUARE_BLUE, RobotFamily.SQUARE_GREEN, RobotFamily.SQUARE_RED};
 
     /**
      * Constructs an RGBRobot with the specified initial position and color sequence.
