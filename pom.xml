@@ -21,6 +21,7 @@
         <module>Sandbox</module>
         <module>H00</module>
         <module>H03</module>
+        <module>H04</module>
     </modules>
 
     <properties>
