@@ -94,14 +94,14 @@ public class KeyboardFieldSelector implements FieldSelector, KeyPressListener {
         }
 
         if (x < 0)
-            x = 0;
-        if (x > World.getWidth() - 1)
             x = World.getWidth() - 1;
+        if (x > World.getWidth() - 1)
+            x = 0;
 
         if (y < 0)
-            y = 0;
-        if (y > World.getHeight() - 1)
             y = World.getHeight() - 1;
+        if (y > World.getHeight() - 1)
+            y = 0;
 
         event.getWorld().setFieldColor(x, y, Color.RED);
 

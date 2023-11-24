@@ -24,10 +24,19 @@ public class Main {
         World.setSize(15, 15);
         World.setVisible(true);
 
-        RobotMover rm = main01();
-        rm.addRobot(new Robot(2, 3));
-        rm.addRobot(new Robot(5, 6));
-        rm.addRobot(new Robot(7, 3));
+        Robot r1 = new Robot(2, 3);
+        Robot r2 = new Robot(5, 6);
+        Robot r3 = new Robot(7, 3);
+
+        RobotMover keyboardRobotMover = main01();
+        keyboardRobotMover.addRobot(r1);
+        keyboardRobotMover.addRobot(r2);
+        keyboardRobotMover.addRobot(r3);
+
+        RobotMover mouseRobotMover = main02();
+        mouseRobotMover.addRobot(r1);
+        mouseRobotMover.addRobot(r2);
+        mouseRobotMover.addRobot(r3);
     }
 
     /**
